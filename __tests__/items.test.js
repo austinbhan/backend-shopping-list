@@ -45,7 +45,6 @@ describe('items', () => {
     const [agent, user] = await registerAndLogin();
     const newItem = { description: 'eggs', qty: 12 };
     const resp = await agent.post('/api/v1/items').send(newItem);
-    console.log(resp.body);
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual({
       id: expect.any(String),
@@ -56,7 +55,7 @@ describe('items', () => {
     });
   });
 
-  it.skip('GET /api/v1/items returns all items associated with the authenticated User', async () => {
+  it('GET /api/v1/items returns all items associated with the authenticated User', async () => {
     // create a user
     const [agent, user] = await registerAndLogin();
     // add a second user with items
@@ -72,6 +71,8 @@ describe('items', () => {
       user_id: user2.id,
     });
     const resp = await agent.get('/api/v1/items');
+    // console.log(resp.body);
+    // console.log(user1Item);
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([user1Item]);
   });
