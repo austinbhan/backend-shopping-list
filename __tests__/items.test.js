@@ -107,7 +107,7 @@ describe('items', () => {
       qty: 6,
       user_id: user2.id,
     });
-    console.log(item);
+    // console.log(item);
     const resp = await agent
       .put(`/api/v1/items/${item.id}`)
       .send({ bought: true });
