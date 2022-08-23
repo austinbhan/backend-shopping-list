@@ -71,6 +71,8 @@ describe('items', () => {
       user_id: user2.id,
     });
     const resp = await agent.get('/api/v1/items');
+    // console.log(resp.body);
+    // console.log(user1Item);
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([user1Item]);
   });
@@ -105,6 +107,7 @@ describe('items', () => {
       qty: 6,
       user_id: user2.id,
     });
+    // console.log(item);
     const resp = await agent
       .put(`/api/v1/items/${item.id}`)
       .send({ bought: true });
