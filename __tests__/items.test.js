@@ -77,12 +77,12 @@ describe('items', () => {
     expect(resp.body).toEqual([user1Item]);
   });
 
-  it.skip('GET /api/v1/items should return a 401 if not authenticated', async () => {
+  it('GET /api/v1/items should return a 401 if not authenticated', async () => {
     const resp = await request(app).get('/api/v1/items');
     expect(resp.status).toEqual(401);
   });
 
-  it.skip('UPDATE /api/v1/items/:id should update an item', async () => {
+  it('UPDATE /api/v1/items/:id should update an item', async () => {
     // create a user
     const [agent, user] = await registerAndLogin();
     const item = await Item.insert({
